@@ -159,7 +159,7 @@ class ClientDashboard extends React.Component {
 }
 
 ClientDashboard.propTypes = {
-    user: PropTypes.objectOf(PropTypes.object),
+    user: PropTypes.objectOf(PropTypes.string),
     loadApplications: PropTypes.func,
     createApplication: PropTypes.func,
     updateApplication: PropTypes.func,

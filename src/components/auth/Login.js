@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import classnames from 'classnames'
@@ -35,15 +36,15 @@ class Login extends Component {
 
     render() {
         const { email, password } = this.state
-        const { history, errors, auth } = this.props
+        const { errors, auth } = this.props
         const styleName = 'btn btn-large waves-effect waves-light hoverable blue accent-3'
 
         if (auth && auth !== null && auth.isAuthenticated) {
+            let path = '/clientdashboard'
             if (auth.user.role === 'OFFICER') {
-                history.push('/officerdashboard') // push user to dashboard when they logged in
-            } else {
-                history.push('/clientdashboard')
+                path = '/officerdashboard'
             }
+            return <Redirect to={path} />
         }
 
         return (
@@ -121,7 +122,6 @@ class Login extends Component {
 
 Login.propTypes = {
     loginUser: PropTypes.func,
-    history: PropTypes.object,
     auth: PropTypes.object,
     errors: PropTypes.object,
 }

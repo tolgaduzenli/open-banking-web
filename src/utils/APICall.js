@@ -1,11 +1,23 @@
 import axios from 'axios'
 import {
+    LOGIN_URL,
+    REGISTER_URL,
     LOAD_APPLICATIONS_URL,
     CREATE_APPLICATION_URL,
     UPDATE_APPLICATION_URL,
     DELETE_APPLICATION_URL,
     UPDATE_APPLICATION_STATUS_URL,
 } from '../constants/APIUrl'
+
+export const loginAPICall = params => {
+    return axios.post(process.env.REACT_APP_API_URL + LOGIN_URL, params).then(response => response)
+}
+
+export const registerAPICall = params => {
+    return axios
+        .post(process.env.REACT_APP_API_URL + REGISTER_URL, params)
+        .then(response => response)
+}
 
 export const loadApplicationsAPICall = params => {
     return axios
