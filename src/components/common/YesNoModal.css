@@ -1,0 +1,17 @@
+.modal-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    padding: 2rem;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button-group > button {
+    margin: 15px;
+}
