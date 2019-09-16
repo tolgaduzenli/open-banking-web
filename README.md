@@ -14,11 +14,12 @@ This is just a demo application.
 
 ## How to Use
 
--   Run is running on AWS S3 bucket.
-    [Link is here](http://openbanking-stage.s3-website.eu-west-2.amazonaws.com/)
--   Access to the URL and register or login.
+-   Application is running on AWS S3 bucket.
+    [Link is here.](http://openbanking-stage.s3-website.eu-west-2.amazonaws.com/) </br>Access to the
+    URL and register or login.
 -   API is running on AWS EC2 instance.
     [API repository is here](https://github.com/tolgaduzenli/open-banking-system)
+-   Application deployed to AWS S3 bucket by CircleCI
 
 ## General Notes
 
