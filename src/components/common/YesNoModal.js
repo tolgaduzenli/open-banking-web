@@ -43,7 +43,7 @@ const YesNoModal = props => {
 YesNoModal.propTypes = {
     onClickYes: PropTypes.func.isRequired,
     onClickNo: PropTypes.func.isRequired,
-    application: PropTypes.objectOf(PropTypes.object),
+    application: PropTypes.objectOf(PropTypes.string),
     showModal: PropTypes.bool.isRequired,
     action: PropTypes.string.isRequired,
 }
