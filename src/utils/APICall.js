@@ -10,7 +10,6 @@ import {
 } from '../constants/APIUrl'
 
 export const loginAPICall = params => {
-    console.log(params)
     return axios.post(process.env.REACT_APP_API_URL + LOGIN_URL, params).then(response => response)
 }
 

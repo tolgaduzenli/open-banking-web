@@ -35,7 +35,7 @@ class Register extends Component {
             role: role.value,
         }
         if (role.value === 'CLIENT') {
-            newUser.empireId = empireId
+            newUser.empireId = empireId.value
         }
         registerUserAPICall(newUser, history)
     }

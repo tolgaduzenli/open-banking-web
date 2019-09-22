@@ -9,7 +9,6 @@ import RegisterLink from './RegisterLink'
 import HomeLink from './HomeLink'
 
 class Login extends Component {
-
     componentDidUpdate() {
         const { auth, history } = this.props
         // If logged in and user navigates to Login page, should redirect to dashboard

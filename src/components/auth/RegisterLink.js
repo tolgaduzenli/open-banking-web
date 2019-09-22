@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
 export default function RegisterLink() {
     return (
         <div className="col s12" style={{ paddingLeft: '11.250px' }}>

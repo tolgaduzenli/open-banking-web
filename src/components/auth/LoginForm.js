@@ -9,24 +9,28 @@ export default function LoginForm(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    return <form noValidate onSubmit={onSubmit}>
-        <TextInputField
-            name="email"
-            value={email}
-            onChange={setEmail}
-            label="Email"
-            error={errors.email || errors.emailnotfound} />
-        <TextInputField
-            name="password"
-            value={password}
-            onChange={setPassword}
-            label="Password"
-            error={errors.password} />
-        <LoginButton type="submit" text="Log in" />
-    </form>
+    return (
+        <form noValidate onSubmit={onSubmit}>
+            <TextInputField
+                name="email"
+                value={email}
+                onChange={setEmail}
+                label="Email"
+                error={errors.email || errors.emailnotfound}
+            />
+            <TextInputField
+                name="password"
+                value={password}
+                onChange={setPassword}
+                label="Password"
+                error={errors.password}
+            />
+            <LoginButton type="submit" text="Log in" />
+        </form>
+    )
 }
 
 LoginForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    errors: PropTypes.objectOf(PropTypes.string)
+    errors: PropTypes.objectOf(PropTypes.string),
 }
