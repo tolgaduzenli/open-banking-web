@@ -20,6 +20,7 @@
         "build": "react-scripts build",
         "build:stage": "cp ./.env.stage ./.env.local && npm run build",
         "test": "react-scripts test",
+        "test:debug": "react-scripts  --inspect-brk test --no-cache --verbose=false --runInBand",
         "eject": "react-scripts eject",
         "deploy:stage": "aws s3 sync build/ s3://openbanking-stage --acl public-read",
         "lint": "eslint src",

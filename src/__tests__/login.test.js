@@ -2,6 +2,7 @@
 import React from 'react'
 import { fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
+import { createMemoryHistory } from 'history'
 import render from '../utils/AppRenderer'
 import Login from '../components/auth/Login'
 import { loginAPICall as mockLoginAPICall } from '../utils/APICall'
@@ -35,13 +36,19 @@ test('Renders components without crash', () => {
 })
 
 test('Should send login credentials to the server', async () => {
-    const { getByText, getByLabelText } = render(<Login />)
+    const history = createMemoryHistory({ initialEntries: ['/login'] })
+    const { getByText, getByLabelText } = render(<Login history={history} />)
     const email = getByLabelText(/email/i)
     const password = getByLabelText(/password/i)
-    const loginButton = getByText(/login/i)
-    fireEvent.change(email, { target: { name: 'email', value: 'email' } })
-    fireEvent.change(password, { target: { name: 'password', value: 'password' } })
+    const loginButton = getByText(/log in/i)
+
+    fireEvent.change(email, { target: { name: 'email', value: 'e1@e.com' } })
+    fireEvent.change(password, { target: { name: 'password', value: '123456' } })
     fireEvent.click(loginButton)
     expect(mockLoginAPICall).toHaveBeenCalledTimes(1)
-    expect(mockLoginAPICall).toHaveBeenCalledWith({ email: 'email', password: 'password' })
+    expect(mockLoginAPICall).toHaveBeenCalledWith({ email: 'e1@e.com', password: '123456' })
 })
+
+// test redirection to the dashboard after successfully login
+
+// test incorrect credentials case

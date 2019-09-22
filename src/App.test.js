@@ -1,33 +1,8 @@
 import React from 'react'
-import { render as rtlRender, fireEvent } from '@testing-library/react'
+import { fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import { Router } from 'react-router-dom'
-import { createMemoryHistory } from 'history'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import rootReducer from './reducers'
 import App from './App'
-
-function render(
-    ui,
-    {
-        initialState = {},
-        store = createStore(rootReducer, initialState),
-        route = '/',
-        history = createMemoryHistory({ initialEntries: [route] }),
-        ...options
-    } = {},
-) {
-    return {
-        ...rtlRender(
-            <Provider store={store}>
-                <Router history={history}>{ui}</Router>
-            </Provider>,
-            options,
-        ),
-        history,
-    }
-}
+import render from './utils/AppRenderer'
 
 // Test for Routing main application
 test('Renders Main app with Landing page and Navigation Bar', () => {
